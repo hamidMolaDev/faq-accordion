@@ -4,42 +4,155 @@
   
 }
 
+@media only screen and (max-width: 375px) {
+  .grid-main {
+    background-image: url(./assets/images/background-pattern-mobile.svg);
+    background-repeat: no-repeat;
+    background-position: top;
+  }
+  .faq-grid {
+    width: 80%;
+  }
+  .faq-legend {
+    width: 35%;
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  .grid-main {
+    background-image: url(./assets/images/background-pattern-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: top;
+  }
+  .faq-grid {
+    width: 80%;
+    max-width: 500px;
+    
+  }
+  .faq-legend {
+    width: 30%;
+    font-size: 2.5rem;
+  }
+}
+
+:root {
+  --White: hsl(0, 0%, 100%);
+  --Light-pink: hsl(275, 100%, 97%);
+  --Grayish-purple: hsl(292, 16%, 49%);
+  --Dark-purple: hsl(292, 42%, 14%);
+}
+
 html, body {
+  font-family: 'work Sans';
   height: 100%;
   margin: 0;
   padding: 0;
+  
 }
 
-
 .grid-main {
-  width: 100%;
-  height: 70vh;
   display: grid;
   place-items: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 97%;
+  
+
+}
+
+.faq-grid {
+  height: auto;
+  background-color: var(--White);
+  display: grid;
+  border: 1px solid #ccc;
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+
+}
+
+.faq-legend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--Dark-purple);
+  margin-left: 20px;
 
 }
 
 .faq-item {
-  width: 500px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid #ccc;
   margin-bottom: 10px;
   padding: 10px;
+  
 }
 
 .question-js {
-  cursor: pointer;
   text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-family: 'work Sans';
+  font-weight: 600;
+  color: var(--Dark-purple);
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  background-color: var(--Light-pink)
+  
 }
 
 .answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  color: var(--Grayish-purple);
+  font-weight: 500;
+  font-size: 0.85rem;
+  padding: 0 20px;
+}
+
+
+.icon-minus {
+  display: none;
+}
+
+
+
+.question-js.active .icon-plus {
   display: none;
 
 }
 
+.question-js.active .icon-minus {
+  display: inline;
+}
+
 .question-js.active + .answer {
   display: block;
-  
+
+}
+
+footer {
+  font-size: 1rem;
+  text-align: center; 
+  height: 3vh;
+
+}
+
+footer a {
+  color: hsl(228, 45%, 44%); 
+  text-decoration: none;
+
+}
+
+
+footer a:hover {
+  color: var(--soft-Moderate-violet);
 }

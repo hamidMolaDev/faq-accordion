@@ -1,16 +1,15 @@
-const questions = document.querySelectorAll('.question-js'); 
+const questions = document.querySelectorAll('.question-js');
 
-questions.forEach(button => button.addEventListener('click', () => {
+questions.forEach(question => {
+  question.addEventListener('click', () => {
+    const answer = question.nextElementSibling;
 
-  button.classList.toggle('active');
+    question.classList.toggle('active');
 
-  const answer = button.nextElementSibling;
-
-  if (answer.style.display === 'block') {
-    answer.style.display = 'none';
-  } else {
-    answer.style.display = 'block';
-  }
-
-
-}))
+    if (question.classList.contains('active')) {
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    } else {
+      answer.style.maxHeight = 0;
+    }
+  });
+});
